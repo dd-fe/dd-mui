@@ -1,0 +1,71 @@
+@import "../../less/skin";
+
+.dd-mui-picker {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    height: 230px;
+    background-color: #fff;
+    padding: 14px 0;
+
+
+    .dd-mui-picker-slide-container {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .ul {
+        float: left;
+        text-align: center;
+    }
+
+    li {
+        color: #aaa;
+        height: 29px;
+        line-height: 29px;
+        font-size: 17px;
+        text-align: center;
+    }
+
+    li.cur {
+        color: #000;
+        font-size: 18px;
+
+        /* Firefox */
+        -moz-transition: all .3s ease-in;
+        /* WebKit */
+        -webkit-transition: all .3s ease-in;
+        /* Opera */
+        -o-transition: all .3s ease-in;
+        /* Standard */
+        transition: all .3s ease-in;
+    }
+
+    @media (max-width: 321px) {
+
+        li {
+            font-size: 15px;
+        }
+
+        li.cur {
+            font-size: 16px;
+        }
+    }
+
+    h1 {
+        width: 100%;
+        border-top: 1px solid #ddd;
+        position: absolute;
+        top: 50%
+    }
+
+    .split-top {
+        margin-top: -16px;
+    }
+
+    .split-bottom {
+        margin-top: 16px;
+    }
+}

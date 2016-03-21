@@ -1,0 +1,39 @@
+@import "../../less/skin";
+
+.dd-mui-switchbutton {
+    width: 56px;
+    height: 30px;
+    padding: 0 5px;
+    line-height: 31px;
+    background-color: @switchbtn-chose-bg-color;
+    border-radius: 5px;
+    margin: 10px 0 10px 14px;
+    font-size: 14px;
+    color: #fff;
+    position: relative;
+
+    .dd-mui-switchbutton-block {
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        top: 2px;
+        border-radius: 4px;
+        background-color: @switchbtn-nochose-bg-color;
+    }
+}
+
+.dd-mui-switchbutton.dd-mui-switchbutton-0 {
+    text-align: left;
+    .dd-mui-switchbutton-block {
+        right: 0%;
+        margin-right: 2px;
+    }
+}
+
+.dd-mui-switchbutton.dd-mui-switchbutton-1 {
+    text-align: right;
+    .dd-mui-switchbutton-block {
+        right: 100%;
+        margin-right: -28px;
+    }
+}

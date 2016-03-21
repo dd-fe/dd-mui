@@ -1,0 +1,94 @@
+@import "../../less/skin";
+
+.dd-mui-sidedateselect {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    height: 230px;
+    background-color: #fff;
+    padding: 14px 0;
+
+
+    .dd-mui-sidedateselect-slide-container {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .dd-mui-sidedateselect-date-container {
+        float: left;
+        width: 60%;
+
+        .date {
+            float: left;
+            width: 60%;
+            text-align: right;
+        }
+
+        .week {
+            float: left;
+            text-align: left;
+            padding-left: 20px;
+        }
+    }
+
+    .dd-mui-sidedateselect-day-container {
+        float: left;
+        width: 40%;
+    }
+
+
+
+    li {
+        color: #aaa;
+        height: 29px;
+        line-height: 29px;
+        font-size: 17px;
+    }
+
+    li.cur {
+        color: #000;
+        font-size: 18px;
+
+        /* Firefox */
+        -moz-transition: all .3s ease-in;
+        /* WebKit */
+        -webkit-transition: all .3s ease-in;
+        /* Opera */
+        -o-transition: all .3s ease-in;
+        /* Standard */
+        transition: all .3s ease-in;
+    }
+
+    @media (max-width: 321px) {
+        .dd-mui-sidedateselect-date-container {
+            .date {
+                width: 50%;
+            }
+        }
+
+        li {
+            font-size: 15px;
+        }
+
+        li.cur {
+            font-size: 16px;
+        }
+    }
+
+    h1 {
+        width: 100%;
+        border-top: 1px solid #ddd;
+        position: absolute;
+        top: 50%
+    }
+
+    .split-top {
+        margin-top: -16px;
+    }
+
+    .split-bottom {
+        margin-top: 16px;
+    }
+}

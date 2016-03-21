@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>switchbutton</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/highlight.css">
+
+    <script src="loader/require.js"></script>
+    <script src="loader/zepto.min.js"></script>
+    <script src="lib/highlight.pack.js"></script>
+
+    <script>
+        require.config({
+            'baseUrl': '../src',
+            'paths': {
+                //'etpl': '../node_modules/etpl/src/main',
+                //'text': '../node_modules/text/text'
+            },
+            'packages': [
+                {
+                    name: 'less',
+                    location: '../demo/loader/require-less',
+                    main: 'less'
+                }
+            ]
+        });
+    </script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript">
+        function html_encode(str)
+        {
+            var s = "";
+            if (str.length == 0) return "";
+            s = str.replace(/&/g, "&amp;");
+            s = s.replace(/</g, "&lt;");
+            s = s.replace(/>/g, "&gt;");
+            s = s.replace(/ /g, "&nbsp;");
+            s = s.replace(/\'/g, "&#39;");
+            s = s.replace(/\"/g, "&quot;");
+            s = s.replace(/\n/g, "<br/>");
+            return s;
+        }
+
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                if ($(block).hasClass('html')) {
+                    var html = $(block).html();
+                    html = html_encode(html);
+                    $(block).html(html);
+                }
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="main">
+    <div class="mobile">
+        <div class="page">
+            <!--手动初始化的例子-->
+            <div id="test"></div>
+
+            <!--自动初始化的例子-->
+            <div ui-type="switchbutton"
+                 ui-property-switchitems="[{text: '你猜', value: 0}, {text: '诶亚', value: 1}]"
+                 ui-property-switchitems=1 ></div>
+
+            <div ui-type="switchbutton"
+                 ui-property-switchitems="[{text: 'hello', value: 0}, {text: '诶亚', value: 1}]"
+                 ui-property-switchitems=0></div>
+
+            <div ui-type="switchbutton"></div>
+        </div>
+    </div>
+    <div class="code">
+        <h3>html结构</h3>
+        <pre>
+            <code class="html">
+                <div class="page">
+                    <!--手动初始化的例子-->
+                    <div id="test"></div>
+
+
+                    <!--自动初始化的例子-->
+                    <div ui-type="switchbutton"
+                         ui-property-switchitems="[{text: '你猜', value: 0}, {text: '诶亚', value: 1}]"
+                         ui-property-switchitems=1 ></div>
+
+                    <div ui-type="switchbutton"
+                         ui-property-switchitems="[{text: 'hello', value: 0}, {text: '诶亚', value: 1}]"
+                         ui-property-switchitems=0></div>
+
+                    <div ui-type="switchbutton"></div>
+                </div>
+            </code>
+        </pre>
+
+        <h3>js使用</h3>
+        <pre>
+            <code class="javascript">
+                require(['widget/switchButton/index', 'common/autoInit'], function (SwitchButton) {
+
+                    // 单独的初始化
+                    new SwitchButton('#test', {
+                        switchitems: [
+                            {
+                            text: '女生',
+                            value: 1
+                            },
+                            {
+                            text: '男生',
+                            value: 2
+                            }
+                        ]
+                    });
+
+                    // 根据标签，自动初始化的例子
+                    $.autoInitDDui([SwitchButton]);
+                });
+            </code>
+        </pre>
+    </div>
+</div>
+
+
+<script>
+    window.onload = function () {
+        // 再真正使用时，不需要require'less!widget/checkbox/checkbox'，less理论上，会编译成css的
+        require(['widget/switchButton/index', 'common/autoInit',
+            'less!widget/switchButton/switchButton'], function
+                (SwitchButton) {
+
+            // 单独的初始化
+            new SwitchButton('#test', {
+                switchitems: [
+                    {
+                        text: '女生',
+                        value: 1
+                    },
+                    {
+                        text: '男生',
+                        value: 2
+                    }
+                ]
+            });
+
+            // 根据标签，自动初始化的例子
+            $.autoInitDDui([SwitchButton]);
+        });
+    };
+</script>
+</body>
+</html>

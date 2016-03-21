@@ -1,0 +1,41 @@
+@import "../../less/skin";
+
+.dd-mui-slider {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid transparent;
+    overflow: hidden;
+
+    &:after {
+        content: ' ';
+        margin-top: 66.6666%; // 默认，要是更改，请在skin中进行覆盖
+        overflow: hidden;
+        position: relative;
+        display: block;
+    }
+
+    .list-container{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #e5e5e5;
+
+        ul {
+            height: 100%;
+
+            li {
+                height: 100%;
+                float: left;
+                text-align: center;
+                overflow: hidden;
+
+                img {
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

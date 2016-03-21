@@ -1,0 +1,72 @@
+@import "./skin";
+
+.dd-mui-form {
+    width: 100%;
+    background-color: @form-bg-color;
+
+    .dd-mui-form-item {
+        min-height: 45px;
+        position: relative;
+        box-sizing: border-box;
+        border-bottom: 1px solid @form-item-border-color;
+        margin-left: 10px;
+        position: relative;
+        -webkit-tap-highlight-color: transparent;
+
+        &:last-child {
+            border: none;
+        }
+
+        .icon,
+        .item-title {
+            float: left;
+            color: @form-icon-color;
+            line-height: 45px;
+            font-size: 19px;
+        }
+
+        .icon {
+            line-height: 42px;
+        }
+
+        .item-title {
+            font-size: 14px;
+            color: @form-text-color;
+        }
+
+        input {
+            float: left;
+            height: 45px;
+            font-size: 15px;
+            border: none;
+            padding: 0 10px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        input::-webkit-input-placeholder {
+            line-height: 18px;
+        }
+    }
+
+    .dd-mui-form-item::after {
+        content:"";
+        display:block;
+        height:0;
+        clear:both;
+        visibility:hidden;
+    }
+
+    ::-webkit-input-placeholder {
+        color: @form-palcehoder-color;
+    }
+    :-moz-placeholder {
+        color: @form-palcehoder-color;
+    }
+    ::-moz-placeholder {
+        color: @form-palcehoder-color;
+    }
+    :-ms-input-placeholder {
+        color: @form-palcehoder-color;
+    }
+
+}

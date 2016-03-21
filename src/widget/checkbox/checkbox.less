@@ -1,0 +1,56 @@
+@import "../../less/skin";
+
+.dd-mui-checkbox {
+    position: relative;
+    display: inline-block;
+    height: 15px;
+    line-height: 15px;
+    color: #666;
+
+    /*&:hover  {
+        span {
+            border-color: @checkbox-border-default-hover;
+        }
+    }*/
+
+    span {
+        display: block;
+        width: 15px;
+        height: 15px;
+        // border: 1px solid @checkbox-border-default;
+        // border-radius: 2px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: data-uri('../../img/check.png') no-repeat center center;
+        background-size: 15px;
+        // z-index: 0;
+
+    }
+
+    label {
+        margin-left: 24px;
+    }
+}
+.dd-mui-checkbox.dd-mui-checkbox-disabled {
+
+    /*&:hover {
+        span {
+            cursor: not-allowed;
+            border-color: @checkbox-border-disabled-hover;
+        }
+    }
+
+    span {
+        border: 1px solid @checkbox-border-disabled;
+    }*/
+}
+
+.dd-mui-checkbox.dd-mui-checkbox-checked {
+    span {
+        /*border-color: @checkbox-border-checked;
+        background: data-uri("../../img/checked.png") center center no-repeat;*/
+        background: data-uri('../../img/circle-checked.png') no-repeat center center;
+        background-size: 15px;
+    }
+}

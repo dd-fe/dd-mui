@@ -1,0 +1,69 @@
+@import "../../less/skin";
+
+.dd-mui-sidebar{
+
+    box-sizing: border-box;
+    width: 100%;
+    display: none;
+    overflow: hidden;
+    //height: 100%;
+    height: auto;
+    //position: fixed;
+    position: absolute;
+    right: 0;
+    top: 0;
+    -webkit-backface-visibility: hidden;
+    z-index: 4;
+
+    &.dd-mui-sidebar-from-left {
+        transform: translate3d(-100%, 0, 0);
+        -webkit-transform: translate3d(-100%, 0px, 0px);
+        -moz-transform: translate3d(-100%, 0px, 0px);
+        -o-transform: translate3d(-100%, 0px, 0px);
+        -ms-transform: translate3d(-100%, 0px, 0px);
+        transform: translate3d(-100%, 0px, 0px);
+    }
+
+    &.dd-mui-sidebar-from-right {
+        -webkit-transform: translate3d(100%, 0px, 0px);
+        -moz-transform: translate3d(100%, 0px, 0px);
+        -o-transform: translate3d(100%, 0px, 0px);
+        -ms-transform: translate3d(100%, 0px, 0px);
+        transform: translate3d(100%, 0px, 0px);
+    }
+
+    &.dd-mui-sidebar-from-bottom {
+        bottom: 0px;
+        top: auto;
+        transform: translate3d(0, 100%, 0);
+        -webkit-transform: translate3d(0, 100%, 0);
+        -moz-transform: translate3d(0, 100%, 0);
+        -o-transform: translate3d(0, 100%, 0);
+        -ms-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    &.dd-mui-sidebar-from-top {
+        transform: translate3d(0, -100%, 0);
+        -webkit-transform: translate3d(0, -100%, 0);
+        -moz-transform: translate3d(0, -100%, 0);
+        -o-transform: translate3d(0, -100%, 0);
+        -ms-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    &.dd-mui-sidebar-active {
+        display: block!important;
+    }
+}
+
+.global-mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: .6;
+    z-index: 3;
+}
