@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>radio</title>
+    <link rel="stylesheet" href="css/base.css">
+    <script src="loader/require.js"></script>
+    <script src="loader/zepto.min.js"></script>
+    <link rel="stylesheet" href="css/highlight.css">
+    <script src="lib/highlight.pack.js"></script>
+    <script>
+        require.config({
+            'baseUrl': '../src',
+            'paths': {
+                //'etpl': '../node_modules/etpl/src/main',
+                //'text': '../node_modules/text/text'
+            },
+            'packages': [
+                {
+                    name: 'less',
+                    location: '../demo/loader/require-less',
+                    main: 'less'
+                }
+            ]
+        });
+    </script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript">
+        function html_encode(str)
+        {
+            var s = "";
+            if (str.length == 0) return "";
+            s = str.replace(/&/g, "&amp;");
+            s = s.replace(/</g, "&lt;");
+            s = s.replace(/>/g, "&gt;");
+            s = s.replace(/ /g, "&nbsp;");
+            s = s.replace(/\'/g, "&#39;");
+            s = s.replace(/\"/g, "&quot;");
+            s = s.replace(/\n/g, "<br/>");
+            return s;
+        }
+
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                if ($(block).hasClass('html')) {
+                    var html = $(block).html();
+                    html = html_encode(html);
+                    $(block).html(html);
+                }
+                hljs.highlightBlock(block);
+            });
+        });
+
+        function get_radioValue(){
+            var value = $('.dd-mui-radiogroup').attr('value');
+            $('.radio-value').html(value);
+        };
+    </script>
+</head>
+<body>
+<div class="main">
+    <div class="mobile">
+        <div class="page">
+            <!--自动初始化的例子-->
+            <div ui-type="radio"
+                 ui-property-state="disabled"
+                 ui-property-labelText="这是一个不可用的radio"></div>
+            <br/>
+            <br/>
+
+            <div ui-type="radio"
+                ui-property-state="checked disabled"                         
+                ui-property-labelText="这是一个默认选中的不可用的radio"></div>
+            <br/>
+            <br/>            
+
+            <div ui-type="radio"
+                 ui-property-labelText="这是一个可用的radio"></div>
+            <br/>
+            <br/>
+
+            <div ui-type="radio"
+                 ui-property-state="checked"
+                 ui-property-labelText="这是一个默认选中的radio"></div>
+            <br/>
+            <br/>
+
+            <div ui-type="radio"
+                 ui-property-state="checked"
+                 ui-property-labelText="这是一个默认选中的radio，值为3" 
+                 ui-property-value="3" ></div>
+            <br/>
+            <br/>
+
+            <div ui-type="radio"></div>
+
+            <br/>
+            <br/>
+
+            <!--手动初始化的例子-->
+            <div id="test"></div>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            <!--一组radio-->
+            <div>一组Radio  <h5>radio值为：<span class="radio-value"></span></h5></div>
+
+            <div ui-type="radiogroup" onchange="get_radioValue()">
+                <div ui-type="radio"
+                    ui-property-state="disabled"
+                    ui-property-value="A"
+                    ui-property-labelText="选项A，不可选"></div>
+                 <div ui-type="radio"
+                    ui-property-value="B"
+                    ui-property-labelText="选项B"></div>
+                 <div ui-type="radio"
+                    ui-property-value="C"
+                    ui-property-labelText="选项C"></div>
+                <div ui-type="radio"
+                    ui-property-value="D"
+                    ui-property-labelText="选项D"></div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div class="code">
+        <h3>html结构</h3>
+        <pre>
+            <code class="html">
+                <div class="page">
+                    <!--自动初始化的例子-->
+                    <div ui-type="radio"
+                         ui-property-state="disabled"
+                         ui-property-labelText="这是一个不可用的radio"></div>
+
+                    <div ui-type="radio"
+                         ui-property-state="checked disabled"                         
+                         ui-property-labelText="这是一个默认选中的不可用的radio"></div>
+
+                    <div ui-type="radio"
+                         ui-property-labelText="这是一个可用的radio"></div>
+
+                    <div ui-type="radio"
+                         ui-property-state="checked"
+                         ui-property-labelText="这是一个默认选中的radio"></div>
+
+                    <div ui-type="radio"
+                         ui-property-state="checked"
+                         ui-property-labelText="这是一个默认选中的radio,值为3"
+                         ui-property-value="3" ></div>
+
+                    <div ui-type="radio"></div>
+
+                    <!--手动初始化的例子-->
+                    <div id="test"></div>
+                    <!--一组radio-->
+                    <div>一组Radio  <h5>radio值为：<span class="radio-value"></span></h5></div>
+
+                    <div ui-type="radiogroup" onchange="get_radioValue()">
+                        <div ui-type="radio"
+                            ui-property-state="disabled"
+                            ui-property-value="A"
+                            ui-property-labelText="选项A，不可选"></div>
+                         <div ui-type="radio"
+                            ui-property-value="B"
+                            ui-property-labelText="选项B"></div>
+                         <div ui-type="radio"
+                            ui-property-value="C"
+                            ui-property-labelText="选项C"></div>
+                        <div ui-type="radio"
+                            ui-property-value="D"
+                            ui-property-labelText="选项D"></div>
+                    </div>
+                </div>
+            </code>
+        </pre>
+
+        <h3>js使用</h3>
+        <pre>
+            <code class="javascript">
+                require(['widget/radio/index', 'common/autoInit'], function (Radio) {
+
+                    // 单独的初始化
+                    new Radio('#test', {
+                        state: '', // checked disabled
+                        labelText: '123123'
+                    });
+
+                    // 根据标签，自动初始化的例子
+                    $.autoInitDDui([Radio]);
+                });
+
+            </code>
+        </pre>
+    </div>
+
+</div>
+
+<script>
+    window.onload = function () {
+        // 再真正使用时，不需要require'less!widget/radio/radio'，less理论上，会编译成css的
+        require(['widget/radio/index', 'widget/radio/group', 'common/autoInit', 'less!widget/radio/radio'], function(Radio, RadioGroup) {
+
+            // 单独的初始化
+            new Radio('#test', {
+                state: '', // checked disabled
+                labelText: '123123',
+            });
+
+            // 根据标签，自动初始化的例子
+            $.autoInitDDui([Radio, RadioGroup]);
+        });
+    };
+</script>
+</body>
+</html>

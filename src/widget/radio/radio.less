@@ -1,0 +1,56 @@
+@import "../../less/skin";
+
+.dd-mui-radio {
+    position: relative;
+    display: inline-block;
+    height: 15px;
+    line-height: 15px;
+    color: #666;
+
+    /*&:hover  {
+        span {
+            border-color: @radio-border-default-hover;
+        }
+    }*/
+
+    span {
+        display: block;
+        width: 15px;
+        height: 15px;
+        // border: 1px solid @radio-border-default;
+        // border-radius: 2px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: data-uri('../../img/check.png') no-repeat center center;
+        background-size: 15px;
+        // z-index: 0;
+
+    }
+
+    label {
+        margin-left: 24px;
+    }
+}
+.dd-mui-radio.dd-mui-radio-disabled {
+
+    /*&:hover {
+        span {
+            cursor: not-allowed;
+            border-color: @radio-border-disabled-hover;
+        }
+    }
+
+    span {
+        border: 1px solid @radio-border-disabled;
+    }*/
+}
+
+.dd-mui-radio.dd-mui-radio-checked {
+    span {
+        /*border-color: @radio-border-checked;
+        background: data-uri("../../img/checked.png") center center no-repeat;*/
+        background: data-uri('../../img/circle-checked.png') no-repeat center center;
+        background-size: 15px;
+    }
+}

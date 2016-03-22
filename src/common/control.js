@@ -36,7 +36,17 @@ define(
             },
 
             getSubClassName: function (str) {
-                return 'dd-mui-' + this.type + '-' + str;
+                // return 'dd-mui-' + this.type + '-' + str;
+
+                var classNames = [];
+                if(str.length > 0){
+                    var strs = str.split(' ');
+                    for(var index in strs){
+                        classNames.push('dd-mui-' + this.type + '-' + strs[index]);
+                    }
+                }
+                
+                return classNames.join(' ');
             },
 
             /**
