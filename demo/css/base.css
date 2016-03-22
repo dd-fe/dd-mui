@@ -1,0 +1,33 @@
+
+.page {
+    position: relative;
+    width: 276px;
+    height: 505px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+
+body {
+    width: 100%;
+}
+
+.main {
+    width: 100%;
+}
+
+.main .code {
+    margin-right: 380px;
+}
+
+
+.main .mobile {
+    float: right;
+}
+
+.mobile {
+    padding: 109px 34px;
+    width: 304px;
+    background: url('../img/device-sprite.png');
+    background-size: 1100px;
+}
